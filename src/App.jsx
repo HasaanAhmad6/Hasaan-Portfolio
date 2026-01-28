@@ -531,7 +531,8 @@ export default function App() {
                 const message = formData.get('message');
                 window.location.href = `mailto:hasaanahmadn6@gmail.com?subject=Portfolio Inquiry from ${name}&body=${message}%0D%0A%0D%0AFrom: ${name}%0D%0AEmail: ${email}`;
               }}
-            >
+            >  
+            
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 opacity-80">
                   Your Name
