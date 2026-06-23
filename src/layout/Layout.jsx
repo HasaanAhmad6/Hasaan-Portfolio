@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import { Sun, Moon, ArrowUp } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import PortfolioChatbot from '../components/PortfolioChatbot'
 
 export default function Layout({ children }) {
   const [dark, setDark] = useState(true)
@@ -68,6 +69,8 @@ export default function Layout({ children }) {
       </div>
 
       <main>{childWithProps}</main>
+
+      <PortfolioChatbot theme={dark ? 'dark' : 'light'} />
 
       {/* Scroll to Top Button */}
       <motion.button

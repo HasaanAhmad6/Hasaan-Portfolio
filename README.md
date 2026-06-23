@@ -35,6 +35,20 @@ Follow these steps to run the project locally:
 cd hasaan-portfolio
 ```
 
+## Chatbot Setup
+
+The portfolio includes a floating chatbot powered by `@hasaan_6/rag-chatbot-widget`. To enable it, add these values to a local `.env` file in the inner project folder:
+
+```bash
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+VITE_GEMINI_API_KEY=
+```
+
+If any of those values are missing, the chatbot stays hidden and the rest of the portfolio still works.
+
+The chatbot uses Gemini for both embeddings (`gemini-embedding-001`) and answer generation (`gemini-2.5-flash`).
+
 ### 2. Install dependencies
 ```bash
 npm install

@@ -1,6 +1,6 @@
 {
   "name": "hasaan-portfolio",
-"homepage": "https://hasaan6.github.io",
+  "homepage": "https://hasaan6.github.io",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,14 +9,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "chatbot:seed": "node scripts/seed-portfolio-content.mjs"
   },
   "dependencies": {
+    "@hasaan_6/rag-chatbot-widget": "^0.2.3",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.263.1",
-    "react-router-dom": "^6.17.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.17.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
