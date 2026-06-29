@@ -32,7 +32,7 @@ export default function Layout({ children }) {
     <div
       className={`${
         dark ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
-      } min-h-screen font-sans transition-colors duration-500 relative overflow-x-hidden`}
+      } } min-h-screen font-sans transition-colors duration-500`}
     >
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-emerald-500 origin-left z-50"
@@ -68,7 +68,7 @@ export default function Layout({ children }) {
         </button>
       </div>
 
-      <main>{childWithProps}</main>
+      <main className="overflow-x-hidden">{childWithProps}</main>
 
       <PortfolioChatbot theme={dark ? 'dark' : 'light'} />
 
