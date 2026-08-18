@@ -6,7 +6,7 @@ import "@hasaan_6/rag-chatbot-widget/dist/chatbot.css";
 
 export function PortfolioChatbot() {
   return (
-    <div className="chatbot-container z-50 font-sans">
+    <div className="chatbot-container z-50 font-sans" data-lenis-prevent>
       <ChatbotWidget
         chatEndpoint="/api/chat"
         persistence="local"
