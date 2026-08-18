@@ -67,8 +67,8 @@
   .chatbot-container .chatbot-widget-shell,
   .chatbot-container .chatbot-theme-dark,
   .chatbot-container .chatbot-theme-light {
-    --chatbot-primary: var(--accent) !important;
-    --chatbot-primary-strong: #00bcd4 !important;
+    --chatbot-primary: #ffffff !important;
+    --chatbot-primary-strong: var(--grey-2) !important;
     --chatbot-secondary: #000000 !important;
     --chatbot-bg: #000000 !important;
     --chatbot-surface: #111111 !important;
@@ -121,6 +121,56 @@
 
   .chatbot-container .chatbot-toggle:hover svg {
     color: #000000 !important;
+  }
+
+  /* Specific element overrides to eliminate blue/cyan themes in the window */
+  .chatbot-container .chatbot-header {
+    background: #111111 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .chatbot-container .chatbot-message-user {
+    background: #1c1c1e !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .chatbot-container .chatbot-message-assistant {
+    background: #111111 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .chatbot-container .chatbot-input-shell:focus-within {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .chatbot-container .chatbot-send:hover,
+  .chatbot-container .chatbot-primary-button:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Exclude blue/cyan highlights from suggested questions and quick actions */
+  .chatbot-container .chatbot-suggested-question {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .chatbot-container .chatbot-suggested-question:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    background: rgba(0, 229, 255, 0.08) !important;
+    transform: translateY(-1px);
+  }
+
+  .chatbot-container .chatbot-quick-action {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .chatbot-container .chatbot-quick-action:hover {
+    border-color: var(--accent) !important;
+    background: rgba(0, 229, 255, 0.04) !important;
   }
 
   /* Skill pills: monochrome label -> brand bg + real logo on hover/focus */
