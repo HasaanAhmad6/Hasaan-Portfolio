@@ -155,6 +155,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Inventory_Management_System",
     accent: "#14b8a6",
+    image: "/images/projects/inventory-management.png",
   },
   {
     slug: "claude-token-counter",
