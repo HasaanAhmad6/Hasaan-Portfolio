@@ -31,10 +31,10 @@ language sql stable as $$
     id,
     content,
     metadata,
-    1 - (embedding <=> query_embedding) as similarity
+    1 - ((embedding::halfvec(3072)) <=> (query_embedding::halfvec(3072))) as similarity
   from documents
-  where 1 - (embedding <=> query_embedding) > match_threshold
-  order by embedding <=> query_embedding
+  where 1 - ((embedding::halfvec(3072)) <=> (query_embedding::halfvec(3072))) > match_threshold
+  order by (embedding::halfvec(3072)) <=> (query_embedding::halfvec(3072))
   limit match_count;
 $$;
 

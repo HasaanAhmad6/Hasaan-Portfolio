@@ -4,39 +4,30 @@ import {
   createGeminiEmbeddingAdapter,
   createOpenAIEmbeddingAdapter,
   ingestDocument,
-} from '@hasaan_6/rag-chatbot-widget'
+} from '@hasaan_6/rag-chatbot-widget/server'
 
 function loadEnvFile(filePath) {
   const env = {}
-
-  const contents = readFileSync(filePath, 'utf8')
-
-  for (const line of contents.split(/\r?\n/)) {
-    const trimmed = line.trim()
-
-    if (!trimmed || trimmed.startsWith('#')) {
-      continue
+  try {
+    const contents = readFileSync(filePath, 'utf8')
+    for (const line of contents.split(/\r?\n/)) {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const equalsIndex = trimmed.indexOf('=')
+      if (equalsIndex === -1) continue
+      const key = trimmed.slice(0, equalsIndex).trim()
+      let value = trimmed.slice(equalsIndex + 1).trim()
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1)
+      }
+      env[key] = value
     }
-
-    const equalsIndex = trimmed.indexOf('=')
-
-    if (equalsIndex === -1) {
-      continue
-    }
-
-    const key = trimmed.slice(0, equalsIndex).trim()
-    let value = trimmed.slice(equalsIndex + 1).trim()
-
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1)
-    }
-
-    env[key] = value
+  } catch {
+    // ignore if file doesn't exist
   }
-
   return env
 }
 
@@ -46,119 +37,144 @@ function toChunks() {
       metadata: {
         title: 'Hero and introduction',
         section: 'hero',
-        url: '/#top',
+        url: '/#hero',
       },
       content:
-        'Hasaan Ahmad is a Computer Science student and full-stack developer focused on React, AWS, and AI/ML. He is available for internships and freelance projects and is based in Gujranwala, Pakistan.',
+        'Hasaan Ahmad is a Computer Science undergraduate and full-stack developer specializing in React, Next.js, AWS Cloud, and AI/Machine Learning solutions. He is available for internships, full-time engineering roles, and freelance projects. He is based in Gujranwala, Pakistan and open to remote work worldwide.',
     },
     {
       metadata: {
-        title: 'About me',
+        title: 'About me and Education',
         section: 'about',
         url: '/#about',
       },
       content:
-        'Hasaan is a passionate Computer Science undergraduate at the University of Central Punjab who builds innovative web applications and AI-powered solutions. He has hands-on experience with React, AWS, and machine learning and wants internship opportunities and freelance projects.',
+        'Hasaan Ahmad is a Computer Science undergraduate at the University of Central Punjab. He builds innovative web applications, scalable cloud backends, and AI-powered solutions. He possesses hands-on expertise with React, Next.js, Three.js, AWS EC2/S3/Lambda, TensorFlow, Flask, and database architecture.',
     },
     {
       metadata: {
-        title: 'Skills and expertise',
+        title: 'Technical Skills and Expertise',
         section: 'skills',
         url: '/#skills',
       },
       content:
-        'Frontend Development: React.js, JavaScript ES6+, Tailwind CSS, Responsive Design. Cloud and DevOps: AWS EC2, S3, Lambda, Firebase, REST APIs, Serverless. Database Systems: SQL/MySQL, MongoDB, Database Design, Query Optimization. AI and Machine Learning: TensorFlow, Python, Computer Vision, Data Analysis.',
+        'Frontend Development: React, Next.js, TypeScript, JavaScript (ES6+), Tailwind CSS, Framer Motion, Responsive Design. Cloud and DevOps: AWS (EC2, S3, Lambda), Firebase Cloud Functions, REST APIs, Serverless. Database Systems: PostgreSQL, MySQL, MongoDB, Supabase pgvector, Schema Normalization, Query Optimization. AI and Machine Learning: TensorFlow, Python, Computer Vision, OpenCV, RAG (Retrieval-Augmented Generation), Gemini LLM, LangChain.',
     },
     {
       metadata: {
-        title: 'Featured projects',
+        title: 'Project: Image Tampering Detection System',
         section: 'projects',
-        url: '/#projects',
+        url: '/projects/image-tampering-detection',
       },
       content:
-        'Featured projects include an image tampering detection system using TensorFlow, Flask, and OpenCV with 90 percent plus accuracy; a Firebase automation tool that reduced processing time by 60 percent; an electricity consumption forecasting app using AWS Free Tier, Python, Streamlit, and Pandas; and a truck dispatch management system built with SQL and MySQL for daily operations.',
+        'Image Tampering Detection System: AI-powered computer vision system built with TensorFlow, Python, OpenCV, and Flask that detects authentic vs manipulated or spliced images with over 90% accuracy, providing real-time manipulation heatmaps and forensic analysis.',
     },
     {
       metadata: {
-        title: 'Continuous learning',
-        section: 'learning',
-        url: '/#learning',
+        title: 'Project: RAG Conversational Assistant & NPM Widget',
+        section: 'projects',
+        url: '/projects/rag-portfolio-chatbot',
       },
       content:
-        'Current learning goals include advanced AWS architecture, deep learning and neural networks, and scalable backend development with APIs, microservices, and performance optimization.',
+        'RAG Conversational Assistant (@hasaan_6/rag-chatbot-widget): A production-grade retrieval-augmented generation chatbot widget published on NPM. Built with React, Next.js, Supabase pgvector cosine similarity search, and Google Gemini 2.5 flash LLM for intelligent, context-aware interactive answers.',
     },
     {
       metadata: {
-        title: 'Contact details',
+        title: 'Project: Firebase Automation Tool',
+        section: 'projects',
+        url: '/projects/firebase-automation-tool',
+      },
+      content:
+        'Firebase Automation Tool: Serverless workflow automation platform leveraging Firebase Cloud Functions, Node.js, and Cloud Firestore to streamline event-driven business operations, cutting manual processing time by 60%.',
+    },
+    {
+      metadata: {
+        title: 'Project: Electricity Consumption Forecasting',
+        section: 'projects',
+        url: '/projects/electricity-consumption-forecasting',
+      },
+      content:
+        'Electricity Consumption Forecasting: Time-series forecasting machine learning application deployed on AWS EC2 with Python, Streamlit, and Pandas to predict power consumption trends and help optimize energy distribution.',
+    },
+    {
+      metadata: {
+        title: 'Project: Truck Dispatch Management System',
+        section: 'projects',
+        url: '/projects/truck-dispatch-management-system',
+      },
+      content:
+        'Truck Dispatch Management System: Comprehensive relational logistics database system designed in SQL and MySQL to coordinate drivers, fleet vehicles, delivery routes, and schedules for 100+ daily transit operations with optimized indexing.',
+    },
+    {
+      metadata: {
+        title: 'Contact Information and Social Profiles',
         section: 'contact',
-        url: '/#contact',
+        url: '/#connect',
       },
       content:
-        'Contact details: email hasaanahmadn6@gmail.com, phone +92 300 1234567, location Gujranwala, Pakistan. Social profiles include GitHub at github.com/Hasaan6 and LinkedIn at linkedin.com/in/hasaan-ahmad-13b605334/.',
+        'Hasaan Ahmad contact details: Email: hasaanahmadn6@gmail.com. Location: Gujranwala, Pakistan. WhatsApp: +92 303 5696807. GitHub: https://github.com/Hasaan6. LinkedIn: https://www.linkedin.com/in/hasaan-ahmad-13b605334/. Open to internships, full-time software engineering roles, and freelance collaborations.',
     },
   ]
 }
 
-async function main() {
-  const envPath = resolve(process.cwd(), '.env')
-  const env = loadEnvFile(envPath)
+async function seed() {
+  const envLocal = loadEnvFile(resolve(process.cwd(), '.env.local'))
+  const env = loadEnvFile(resolve(process.cwd(), '.env'))
+  const merged = { ...env, ...envLocal, ...process.env }
 
-  const supabaseUrl = env.VITE_SUPABASE_URL
-  const supabaseAnonKey = env.VITE_SUPABASE_ANON_KEY
-  const supabaseServiceRoleKey = env.SUPABASE_SERVICE_ROLE_KEY
-  const geminiApiKey = env.VITE_GEMINI_API_KEY
-  const openAiApiKey = env.OPENAI_API_KEY
-  const embeddingProvider = (env.EMBEDDING_PROVIDER || 'gemini').toLowerCase()
+  const supabaseUrl =
+    merged.NEXT_PUBLIC_SUPABASE_URL || merged.SUPABASE_URL || merged.VITE_SUPABASE_URL
+  const supabaseKey =
+    merged.SUPABASE_SERVICE_ROLE_KEY || merged.SUPABASE_ANON_KEY || merged.VITE_SUPABASE_ANON_KEY
+  const geminiApiKey = merged.GEMINI_API_KEY || merged.VITE_GEMINI_API_KEY
+  const openAiApiKey = merged.OPENAI_API_KEY
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Missing one or more required values in .env')
+  if (!supabaseUrl || !supabaseKey) {
+    console.error('❌ Missing Supabase URL or Key in environment.')
+    process.exit(1)
   }
 
-  const writeKey = supabaseServiceRoleKey || supabaseAnonKey
+  const provider = (merged.EMBEDDING_PROVIDER || 'gemini').toLowerCase()
+  let embedText
 
-  console.log('Run supabase/chatbot-schema.sql (or chatbot-schema-migrate-to-3072.sql) in Supabase first.')
-  console.log('Then run this script to seed the portfolio content.')
-  if (!supabaseServiceRoleKey) {
-    console.log('Warning: SUPABASE_SERVICE_ROLE_KEY is not set, so the script will use the anon key.')
-  }
-
-  let embeddingAdapter
-
-  if (embeddingProvider === 'openai') {
+  if (provider === 'openai') {
     if (!openAiApiKey) {
-      throw new Error('OPENAI_API_KEY is required when EMBEDDING_PROVIDER=openai')
+      console.error('❌ Missing OPENAI_API_KEY for OpenAI embeddings.')
+      process.exit(1)
     }
-
-    console.log('Use supabase/chatbot-schema-openai.sql before seeding with OpenAI embeddings.')
-    embeddingAdapter = createOpenAIEmbeddingAdapter(openAiApiKey, 'text-embedding-3-small')
+    embedText = createOpenAIEmbeddingAdapter(openAiApiKey)
   } else {
     if (!geminiApiKey) {
-      throw new Error('VITE_GEMINI_API_KEY is required when EMBEDDING_PROVIDER is not openai')
+      console.error('❌ Missing GEMINI_API_KEY for Gemini embeddings.')
+      process.exit(1)
     }
-
-    console.log('Using gemini-embedding-001 (3072 dimensions).')
-    embeddingAdapter = createGeminiEmbeddingAdapter(geminiApiKey)
+    embedText = createGeminiEmbeddingAdapter(geminiApiKey)
   }
 
-  const probe = await embeddingAdapter('dimension check')
-  console.log('Embedding dimensions:', probe.length)
+  console.log(`🚀 Starting portfolio content ingestion using [${provider}] embeddings...`)
 
   const chunks = toChunks()
-
-  for (const chunk of chunks) {
-    await ingestDocument(
-      chunk.content,
-      chunk.metadata,
-      embeddingAdapter,
-      supabaseUrl,
-      writeKey,
-    )
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i]
+    console.log(`Processing [${i + 1}/${chunks.length}]: ${chunk.metadata.title}...`)
+    try {
+      await ingestDocument(
+        chunk.content,
+        chunk.metadata,
+        embedText,
+        supabaseUrl,
+        supabaseKey
+      )
+      console.log(`✅ Ingested: ${chunk.metadata.title}`)
+    } catch (err) {
+      console.error(`❌ Failed to ingest ${chunk.metadata.title}:`, err.message || err)
+    }
   }
 
-  console.log(`Seeded ${chunks.length} documents into Supabase.`)
+  console.log('🎉 Portfolio knowledge base successfully seeded!')
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : error)
-  process.exitCode = 1
+seed().catch((err) => {
+  console.error('Fatal error seeding portfolio:', err)
+  process.exit(1)
 })
