@@ -58,7 +58,12 @@ export function Connect() {
             </div>
 
             <div className="text-sm space-y-1 text-grey-2">
-              <p className="text-fg font-medium">{EMAIL}</p>
+              <p className="text-fg font-medium">
+                <a href={`mailto:${EMAIL}`} className="hover:text-accent transition-colors">{EMAIL}</a>
+              </p>
+              <p className="text-fg font-medium">
+                <a href="tel:+923035696807" className="hover:text-accent transition-colors">+92 303 5696807</a>
+              </p>
               <p>Gujranwala, Pakistan · Open to Remote & Relocation</p>
             </div>
           </div>
