@@ -1,10 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ChatbotWidget } from "@hasaan_6/rag-chatbot-widget";
 import "@hasaan_6/rag-chatbot-widget/dist/chatbot.css";
 
 export function PortfolioChatbot() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="chatbot-container z-50 font-sans" data-lenis-prevent>
       <ChatbotWidget
