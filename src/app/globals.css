@@ -63,6 +63,32 @@
     opacity: 0 !important;
   }
 
+  /* Chatbot widget theme overrides to match the portfolio's aesthetics */
+  .chatbot-container .chatbot-widget-shell,
+  .chatbot-container .chatbot-theme-dark,
+  .chatbot-container .chatbot-theme-light {
+    --chatbot-primary: var(--accent) !important;
+    --chatbot-primary-strong: #00bcd4 !important;
+    --chatbot-secondary: #000000 !important;
+    --chatbot-bg: #000000 !important;
+    --chatbot-surface: #111111 !important;
+    --chatbot-text: var(--fg) !important;
+    --chatbot-muted: var(--grey-2) !important;
+    --chatbot-border: rgba(255, 255, 255, 0.1) !important;
+    --chatbot-border-radius: 20px !important;
+  }
+
+  .chatbot-container .chatbot-widget-shell {
+    font-family: var(--font-sans) !important;
+  }
+
+  .chatbot-container .chatbot-heading,
+  .chatbot-container .chatbot-eyebrow,
+  .chatbot-container .chatbot-toggle,
+  .chatbot-container .chatbot-lead-kicker {
+    font-family: var(--font-display) !important;
+  }
+
   /* Skill pills: monochrome label -> brand bg + real logo on hover/focus */
   .skill-pill {
     --skill-bg: #ffffff;
