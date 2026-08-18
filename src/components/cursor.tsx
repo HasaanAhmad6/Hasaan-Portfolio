@@ -56,12 +56,14 @@ export function Cursor() {
   return (
     <div
       ref={dotRef}
+      id="custom-cursor-dot"
       aria-hidden
-      className="pointer-events-none fixed top-0 left-0 z-[100] h-6 w-6 rounded-full"
+      className="pointer-events-none fixed top-0 left-0 z-[999999] h-6 w-6 rounded-full"
       style={{
         mixBlendMode: "difference",
         background: "#ffffff",
         opacity: 0,
+        pointerEvents: "none",
       }}
     />
   );

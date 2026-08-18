@@ -52,6 +52,17 @@
     cursor: none !important;
   }
 
+  /* Exempt the chatbot container and its children from cursor hiding, so the user gets standard pointer/text cursors */
+  .custom-cursor .chatbot-container,
+  .custom-cursor .chatbot-container * {
+    cursor: auto !important;
+  }
+
+  /* Hide the custom cursor dot when hovering over the chatbot */
+  html:has(.chatbot-container:hover) #custom-cursor-dot {
+    opacity: 0 !important;
+  }
+
   /* Skill pills: monochrome label -> brand bg + real logo on hover/focus */
   .skill-pill {
     --skill-bg: #ffffff;
