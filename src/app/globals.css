@@ -89,6 +89,40 @@
     font-family: var(--font-display) !important;
   }
 
+  /* White chatbot toggle button matching "Download CV" button styles */
+  .chatbot-container .chatbot-toggle {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .chatbot-container .chatbot-toggle:hover {
+    background: var(--accent) !important;
+    color: #000000 !important;
+    transform: translateY(-2px);
+  }
+
+  .chatbot-container .chatbot-toggle-icon {
+    background: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .chatbot-container .chatbot-toggle-dot {
+    background: #000000 !important;
+  }
+
+  .chatbot-container .chatbot-toggle-spark {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .chatbot-container .chatbot-toggle svg {
+    color: #000000 !important;
+  }
+
+  .chatbot-container .chatbot-toggle:hover svg {
+    color: #000000 !important;
+  }
+
   /* Skill pills: monochrome label -> brand bg + real logo on hover/focus */
   .skill-pill {
     --skill-bg: #ffffff;

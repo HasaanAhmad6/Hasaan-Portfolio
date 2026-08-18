@@ -58,7 +58,7 @@ export function Nav() {
           href="/Hasaan_Ahmad_Resume.docx"
           download="Hasaan_Ahmad_Resume.docx"
           onClick={() => setOpen(false)}
-          className="rounded-full bg-fg px-4 py-1.5 text-sm font-medium text-bg transition-colors hover:bg-accent hover:text-black cursor-pointer"
+          className="rounded-full bg-fg px-4 py-1.5 text-sm font-medium text-bg transition-colors hover:bg-accent hover:text-black cursor-pointer whitespace-nowrap"
         >
           Download CV
         </a>
