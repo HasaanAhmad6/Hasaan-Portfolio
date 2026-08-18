@@ -49,9 +49,20 @@ export default async function ProjectPage({ params }: Props) {
             background: `radial-gradient(120% 120% at 20% 10%, ${project.accent}22, transparent 60%), linear-gradient(160deg, ${project.accent}55, #111 70%)`,
           }}
         >
+          {project.image && (
+            <img
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              className="absolute inset-0 h-full w-full object-cover opacity-85"
+            />
+          )}
+          {project.image && (
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent z-0 opacity-70" />
+          )}
+
           <span
             aria-hidden
-            className="pointer-events-none absolute -right-6 -bottom-10 select-none font-display font-black uppercase leading-none text-white/[0.08]"
+            className="pointer-events-none absolute -right-6 -bottom-10 select-none font-display font-black uppercase leading-none text-white/[0.08] z-10"
             style={{ fontSize: "clamp(6rem, 20vw, 15rem)" }}
           >
             {project.title.slice(0, 1)}

@@ -27,9 +27,23 @@ function ProjectCard({ project }: { project: Project }) {
           background: `radial-gradient(120% 120% at 18% 0%, ${project.accent}26, transparent 55%), linear-gradient(160deg, ${project.accent}3a, #101010 75%)`,
         }}
       >
+        {project.image && (
+          <img
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105"
+          />
+        )}
+        {project.image && (
+          <div className="absolute inset-0 bg-gradient-to-t from-[#101010] via-transparent to-transparent z-0 opacity-80" />
+        )}
+        {project.image && (
+          <div className="absolute inset-0 bg-black/30 z-0" />
+        )}
+
         <span
           aria-hidden
-          className="pointer-events-none absolute -right-6 -bottom-10 select-none font-display font-black uppercase leading-none text-white/[0.06] transition-transform duration-700 group-hover:-translate-x-2 group-hover:-translate-y-2"
+          className="pointer-events-none absolute -right-6 -bottom-10 select-none font-display font-black uppercase leading-none text-white/[0.06] transition-transform duration-700 group-hover:-translate-x-2 group-hover:-translate-y-2 z-10"
           style={{ fontSize: "clamp(5rem, 16vw, 11rem)" }}
         >
           {project.title.slice(0, 1)}

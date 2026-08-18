@@ -11,6 +11,7 @@ export type Project = {
   live?: string;
   github: string;
   accent: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Tracelens",
     accent: "#38bdf8",
+    image: "/images/projects/tracelens.png",
   },
   {
     slug: "rag-chatbot",
@@ -47,6 +49,7 @@ export const projects: Project[] = [
     live: "https://www.npmjs.com/package/@hasaan_6/rag-chatbot-widget",
     github: "https://github.com/HasaanAhmad6/Rag-Chatbot",
     accent: "#00e5ff",
+    image: "/images/projects/rag-chatbot.png",
   },
   {
     slug: "image-tampering-detection",
@@ -64,6 +67,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Image_Tampering_Detection",
     accent: "#ff6b6b",
+    image: "/images/projects/image-tampering.png",
   },
   {
     slug: "face-recognition",
@@ -81,6 +85,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Face_Recognition",
     accent: "#8b5cf6",
+    image: "/images/projects/face-recognition.png",
   },
   {
     slug: "hand-tracking-ar",
@@ -132,6 +137,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Nayyab_Jewellers",
     accent: "#eab308",
+    image: "/images/projects/nayyab-jewellers.png",
   },
   {
     slug: "inventory-management-system",
@@ -183,6 +189,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Electricity_Forecast_App",
     accent: "#10b981",
+    image: "/images/projects/electricity-forecast.png",
   },
   {
     slug: "folder-locker",
@@ -200,6 +207,7 @@ export const projects: Project[] = [
     live: "",
     github: "https://github.com/HasaanAhmad6/Folder_Locker",
     accent: "#ef4444",
+    image: "/images/projects/folder-locker.png",
   },
 ];
 
