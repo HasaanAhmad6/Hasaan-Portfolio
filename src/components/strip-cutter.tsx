@@ -14,7 +14,7 @@ function bandTiles() {
   return Array.from({ length: TILES }).map((_, i) => (
     <span
       key={i}
-      aria-hidden
+      aria-hidden="true"
       className="flex items-center gap-[0.3em] px-[0.45em]"
     >
       {Array.from({ length: COPIES }).map((_, j) => (

@@ -83,23 +83,34 @@ export function Connect() {
 
         <div className="mt-12 flex flex-col gap-10 md:mt-16 md:flex-row md:items-start md:justify-between">
           <div className="flex flex-col gap-6">
-            <div className="flex flex-wrap gap-3">
-              {["github", "linkedin", "whatsapp"].map((name) => {
-                const def = socials[name];
-                return (
-                  <a
-                    key={name}
-                    href={SOCIAL_LINKS[name]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className="social-btn grid h-12 w-12 place-items-center rounded-full border border-white/10 transition-[color,box-shadow,border-color] duration-300"
-                    style={{ "--brand": def.brand } as React.CSSProperties}
-                  >
-                    <SocialIcon name={name} className="h-5 w-5" />
-                  </a>
-                );
-              })}
+            <div className="flex flex-wrap gap-4 items-center">
+              {/* Primary Action: Email */}
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center justify-center px-6 py-3 rounded-full bg-fg text-bg hover:bg-accent hover:text-black font-semibold text-sm transition-colors cursor-pointer h-12"
+              >
+                Email Me
+              </a>
+              {/* Primary Action: LinkedIn */}
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-6 py-3 rounded-full border border-white/10 bg-grey-1 hover:border-white/40 text-fg font-semibold text-sm transition-colors cursor-pointer h-12"
+              >
+                LinkedIn
+              </a>
+              {/* Secondary Action: GitHub (as-is circular icon) */}
+              <a
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="social-btn grid h-12 w-12 place-items-center rounded-full border border-white/10 transition-[color,box-shadow,border-color] duration-300"
+                style={{ "--brand": socials.github.brand } as React.CSSProperties}
+              >
+                <SocialIcon name="github" className="h-5 w-5" />
+              </a>
             </div>
 
             <div className="text-sm space-y-1 text-grey-2">
@@ -108,6 +119,7 @@ export function Connect() {
               </p>
               <p className="text-fg font-medium">
                 <a href="tel:+923035696807" className="hover:text-accent transition-colors">+92 303 5696807</a>
+                <span className="text-grey-2 text-xs font-normal ml-2 inline-block align-middle">(WhatsApp available)</span>
               </p>
               <p>Gujranwala, Pakistan · Open to Remote & Relocation</p>
             </div>

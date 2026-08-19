@@ -49,7 +49,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.title.slice(0, 1)}
         </span>
 
-        <div className="flex items-center justify-between z-10">
+        <div className="flex items-center justify-between z-10 w-full">
           <span
             className="rounded-full px-3 py-1 text-xs font-medium uppercase tracking-widest"
             style={{
@@ -61,17 +61,32 @@ function ProjectCard({ project }: { project: Project }) {
             {project.tagline}
           </span>
 
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="View GitHub Repository"
-              className="grid h-8 w-8 place-items-center rounded-full bg-black/60 border border-white/10 text-white/80 hover:text-accent hover:border-accent transition-colors z-20 cursor-pointer"
-            >
-              <SocialIcon name="github" className="h-4 w-4" />
-            </a>
-          )}
+          <div className="flex items-center gap-2">
+            {project.slug === "rag-chatbot" && project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View Published NPM Package"
+                className="flex items-center gap-1.5 px-3 py-1 h-8 rounded-full bg-black/60 border border-white/10 text-white/80 hover:text-accent hover:border-accent transition-colors z-20 cursor-pointer text-[10px] font-bold tracking-widest uppercase"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#cc3534] animate-pulse" />
+                <span>NPM</span>
+              </a>
+            )}
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View GitHub Repository"
+                className="grid h-8 w-8 place-items-center rounded-full bg-black/60 border border-white/10 text-white/80 hover:text-accent hover:border-accent transition-colors z-20 cursor-pointer"
+              >
+                <SocialIcon name="github" className="h-4 w-4" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
 

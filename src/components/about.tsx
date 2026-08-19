@@ -25,16 +25,16 @@ export function About() {
           About Me
         </p>
         <TextOutline className="font-display font-bold tracking-tight text-[clamp(2.5rem,8vw,5rem)] leading-[1.05]">
-          Engineer who
+          Engineer who ships
           <br />
-          builds with impact.
+          things people actually use.
         </TextOutline>
         <div className="mt-6 max-w-lg space-y-4 text-base leading-8 text-black/80 md:text-lg md:leading-9">
           <p>
-            I&rsquo;m a Computer Science undergraduate at the <strong className="font-semibold text-black">University of Central Punjab</strong>, passionate about building cutting-edge full-stack web applications and AI-powered solutions.
+            I&rsquo;m a full-stack and AI engineer currently interning at <strong className="font-semibold text-black">iCode Software House</strong>, where I work on React Native and Django systems — including a sale-prediction and automated low-stock ordering flow. Alongside that, I build independently: a published npm package (<code className="rounded bg-black/5 px-1 py-0.5 text-xs font-mono text-black">@hasaan_6/rag-chatbot-widget</code>), a computer vision system detecting image tampering with 90%+ accuracy, and a telemetry/observability platform with ML-based error clustering.
           </p>
           <p>
-            With hands-on proficiency in <strong className="font-semibold text-black">React, Next.js, AWS Cloud, and Machine Learning</strong>, I design production-grade systems from database schemas to interactive frontends and conversational RAG pipelines.
+            I care most about the parts of engineering that don&rsquo;t show up in a demo: getting the underlying approach <em className="italic">correct</em> (not just working), and shipping things other people can actually install, deploy, or extend. <strong className="font-semibold text-black">React, Next.js, Python, and AWS</strong> are my primary tools; <strong className="font-semibold text-black">TensorFlow and MediaPipe</strong> for the ML/CV work.
           </p>
         </div>
       </div>

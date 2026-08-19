@@ -1,10 +1,10 @@
 import { Hero } from "@/components/hero";
 import { WipeTransition } from "@/components/wipe-transition";
 import { About } from "@/components/about";
+import { Experience } from "@/components/experience";
 import { StripCutter } from "@/components/strip-cutter";
 import { ProjectsGallery } from "@/components/projects-gallery";
 import { Skills } from "@/components/skills";
-import { Testimonials } from "@/components/testimonials";
 import { Connect } from "@/components/connect";
 
 export default function Home() {
@@ -14,12 +14,12 @@ export default function Home() {
       <WipeTransition>
         <About />
       </WipeTransition>
+      <Experience />
       <StripCutter />
       <ProjectsGallery />
 
       <Skills />
 
-      <Testimonials />
       <Connect />
     </main>
   );

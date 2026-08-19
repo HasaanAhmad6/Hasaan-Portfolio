@@ -20,14 +20,14 @@ export const projects: Project[] = [
     title: "Tracelens",
     tagline: "Developer Analytics · TypeScript",
     year: "2026",
-    role: "Lead Full-Stack Developer",
+    role: "Solo Developer",
     summary:
       "An advanced developer analytics and telemetry tracing platform designed for real-time observability, distributed request tracing, and performance metrics.",
     problem:
       "Modern web applications produce fragmented telemetry logs that are difficult to correlate without heavy, expensive enterprise monitoring infrastructure.",
     solution:
-      "Engineered a unified developer tracing suite offering lightweight metrics instrumentation, real-time event aggregation, and an interactive performance dashboard.",
-    stack: ["TypeScript", "React", "Next.js", "Analytics", "Tailwind CSS", "REST APIs"],
+      "Engineered a unified distributed request-tracing and telemetry platform utilizing OpenTelemetry-like spans to monitor performance bottlenecks and error propagation in real-time.",
+    stack: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Node.js", "Socket.io", "REST APIs"],
     live: "",
     github: "https://github.com/HasaanAhmad6/Tracelens",
     accent: "#38bdf8",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     title: "RAG Chatbot Widget",
     tagline: "Full-Stack RAG · Gemini & Supabase",
     year: "2026",
-    role: "Full-Stack & AI Engineer",
+    role: "Solo Full-Stack & AI Engineer",
     summary:
       "A published NPM library (@hasaan_6/rag-chatbot-widget) and full-stack retrieval-augmented conversational AI assistant backed by Gemini LLM and Supabase pgvector.",
     problem:
@@ -56,14 +56,14 @@ export const projects: Project[] = [
     title: "Image Tampering Detection",
     tagline: "AI Computer Vision · TensorFlow",
     year: "2026",
-    role: "AI / ML Developer",
+    role: "Solo AI / ML & Full-Stack Developer",
     summary:
       "An intelligent computer vision system leveraging deep learning to distinguish authentic images from spliced and tampered media with over 90% accuracy.",
     problem:
       "Digital image manipulation and deepfakes make visual content authentication difficult, requiring automated, reliable forensic detection pipelines.",
     solution:
-      "Built a CNN-based deep learning architecture using TensorFlow and OpenCV paired with a Flask REST API for real-time forensic analysis and manipulation heatmaps.",
-    stack: ["Python", "TensorFlow", "OpenCV", "Flask", "JavaScript", "CNNs"],
+      "Developed an AI forensic pipeline using Error Level Analysis (ELA) and Convolutional Neural Networks (CNNs) in TensorFlow to detect image splicing with 90%+ accuracy.",
+    stack: ["Python", "TensorFlow", "OpenCV", "Flask", "React", "Tailwind CSS"],
     live: "",
     github: "https://github.com/HasaanAhmad6/Image_Tampering_Detection",
     accent: "#ff6b6b",
@@ -74,14 +74,14 @@ export const projects: Project[] = [
     title: "Face Recognition System",
     tagline: "Biometric AI · OpenCV & Python",
     year: "2025",
-    role: "AI Developer",
+    role: "Solo AI Developer",
     summary:
       "Real-time face detection and biometric identification system capable of recognizing enrolled faces with high frame rates.",
     problem:
       "Automating attendance and security access control requires robust facial feature extraction under varying lighting and pose conditions.",
     solution:
-      "Implemented facial landmark alignment, deep embeddings extraction, and Euclidean distance classification with an intuitive management interface.",
-    stack: ["Python", "OpenCV", "JavaScript", "Machine Learning", "Biometrics"],
+      "Implemented a real-time facial landmark detection and identification pipeline utilizing OpenCV, face-alignment networks, and Euclidean distance metric learning.",
+    stack: ["Python", "OpenCV", "Tkinter", "Machine Learning", "Biometrics"],
     live: "",
     github: "https://github.com/HasaanAhmad6/Face_Recognition",
     accent: "#8b5cf6",
@@ -92,14 +92,14 @@ export const projects: Project[] = [
     title: "Hand Tracking AR",
     tagline: "Augmented Reality · Computer Vision",
     year: "2026",
-    role: "Creative Tech & AR Developer",
+    role: "Solo Developer",
     summary:
       "A browser-based Augmented Reality hand tracking experience that detects 21 hand landmarks in real-time for gestural interactive controls.",
     problem:
       "Traditional camera-based interaction requires native software or bulky hardware sensors, limiting web accessibility.",
     solution:
-      "Created an in-browser WebRTC computer vision pipeline executing real-time 3D hand tracking directly via the browser canvas.",
-    stack: ["JavaScript", "HTML5", "Computer Vision", "WebRTC", "Canvas API"],
+      "Created an in-browser WebRTC computer vision pipeline executing real-time 3D hand tracking directly via the browser canvas using MediaPipe Hands.",
+    stack: ["JavaScript", "HTML5", "MediaPipe Hands", "Canvas API", "WebRTC"],
     live: "",
     github: "https://github.com/HasaanAhmad6/Hand_Tracking_Ar",
     accent: "#ec4899",
