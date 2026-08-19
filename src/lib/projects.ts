@@ -100,7 +100,7 @@ export const projects: Project[] = [
     solution:
       "Created an in-browser WebRTC computer vision pipeline executing real-time 3D hand tracking directly via the browser canvas using MediaPipe Hands.",
     stack: ["JavaScript", "HTML5", "MediaPipe Hands", "Canvas API", "WebRTC"],
-    live: "",
+    live: "https://hasaanahmad6.github.io/Hand_Tracking_Ar/",
     github: "https://github.com/HasaanAhmad6/Hand_Tracking_Ar",
     accent: "#ec4899",
   },
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     solution:
       "Crafted a responsive storefront with categorized collections, fast search, lightbox galleries, and direct WhatsApp order dispatch.",
     stack: ["JavaScript", "HTML5", "CSS3", "Responsive UI", "E-Commerce"],
-    live: "",
+    live: "https://hasaanahmad6.github.io/Nayyab_Jewellers/",
     github: "https://github.com/HasaanAhmad6/Nayyab_Jewellers",
     accent: "#eab308",
     image: "/images/projects/nayyab-jewellers.png",
