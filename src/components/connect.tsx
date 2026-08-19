@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { socials, SocialIcon } from "@/components/social-icons";
 import { scrollToSection } from "@/lib/scroll";
 
@@ -12,16 +13,60 @@ const SOCIAL_LINKS: Record<string, string> = {
 const EMAIL = "hasaanahmadn6@gmail.com";
 
 export function Connect() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(
-      `Portfolio Inquiry from ${fd.get("name")}`
-    );
-    const body = encodeURIComponent(
-      `${fd.get("message")}\n\nFrom: ${fd.get("name")}\nReply to: ${fd.get("email")}`
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    const name = fd.get("name") as string;
+    const email = fd.get("email") as string;
+    const message = fd.get("message") as string;
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      // Fallback to mailto link if EmailJS credentials are not configured yet
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nReply to: ${email}`);
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    try {
+      setStatus("sending");
+      const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: {
+            name,
+            email,
+            message,
+            title: "Portfolio Contact Form Message",
+          },
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch (err) {
+      console.error("EmailJS submission error:", err);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -93,10 +138,21 @@ export function Connect() {
             />
             <button
               type="submit"
-              className="mt-4 w-full sm:w-auto rounded-full bg-fg px-8 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent hover:text-black cursor-pointer"
+              disabled={status === "sending"}
+              className="mt-4 w-full sm:w-auto rounded-full bg-fg px-8 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent hover:text-black cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+            {status === "success" && (
+              <p className="mt-3 text-xs text-accent font-medium transition-opacity">
+                ✓ Message sent successfully! I will get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="mt-3 text-xs text-red-500 font-medium transition-opacity">
+                ✗ Failed to send message. Please try again or email directly.
+              </p>
+            )}
           </form>
         </div>
       </section>
