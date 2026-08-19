@@ -17,9 +17,11 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Languages",
     items: [
-      { name: "TypeScript", bg: "#3178c6", logoColor: "#ffffff", icon: "siTypescript" },
-      { name: "JavaScript", bg: "#f7df1e", logoColor: "#000000", icon: "siJavascript" },
       { name: "Python", bg: "#3776ab", logoColor: "#ffffff", icon: "siPython" },
+      { name: "JavaScript", bg: "#f7df1e", logoColor: "#000000", icon: "siJavascript" },
+      { name: "TypeScript", bg: "#3178c6", logoColor: "#ffffff", icon: "siTypescript" },
+      { name: "C++", bg: "#00599c", logoColor: "#ffffff", icon: "siCplusplus" },
+      { name: "SQL", bg: "#00758f", logoColor: "#ffffff", icon: "customSql" },
     ],
   },
   {
@@ -27,30 +29,35 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "React", bg: "#61dafb", logoColor: "#000000", icon: "siReact" },
       { name: "Next.js", bg: "#ffffff", logoColor: "#000000", icon: "siNextdotjs" },
+      { name: "Vite", bg: "#646cff", logoColor: "#ffffff", icon: "siVite" },
       { name: "Tailwind CSS", bg: "#06b6d4", logoColor: "#ffffff", icon: "siTailwindcss" },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", bg: "#5fa04e", logoColor: "#ffffff", icon: "siNodedotjs" },
-      { name: "FastAPI", bg: "#059669", logoColor: "#ffffff", icon: "siFastapi" },
+      { name: "Django", bg: "#092e20", logoColor: "#ffffff", icon: "siDjango" },
       { name: "Flask", bg: "#ffffff", logoColor: "#000000", icon: "siFlask" },
+      { name: "Node.js", bg: "#5fa04e", logoColor: "#ffffff", icon: "siNodedotjs" },
     ],
   },
   {
     category: "AI / ML",
     items: [
       { name: "TensorFlow", bg: "#ff6f00", logoColor: "#ffffff", icon: "siTensorflow" },
+      { name: "OpenCV", bg: "#5c3ee8", logoColor: "#ffffff", icon: "siOpencv" },
+      { name: "Scikit-learn", bg: "#f7931e", logoColor: "#ffffff", icon: "siScikitlearn" },
+      { name: "Statsmodels/pmdarima", bg: "#ff4b4b", logoColor: "#ffffff", icon: "customStats" },
+      { name: "Streamlit", bg: "#ff4b4b", logoColor: "#ffffff", icon: "siStreamlit" },
     ],
   },
   {
-    category: "Cloud & DevOps",
+    category: "Generative AI",
     items: [
-      { name: "AWS", bg: "#ff9900", logoColor: "#000000", icon: "customAws" },
-      { name: "Firebase", bg: "#ffca28", logoColor: "#000000", icon: "siFirebase" },
-      { name: "Docker", bg: "#2496ed", logoColor: "#ffffff", icon: "siDocker" },
-      { name: "Git", bg: "#f05032", logoColor: "#ffffff", icon: "siGit" },
+      { name: "RAG pipelines", bg: "#00e5ff", logoColor: "#000000", icon: "customRag" },
+      { name: "LLM APIs", bg: "#10a37f", logoColor: "#ffffff", icon: "customLlm" },
+      { name: "embeddings & vector search", bg: "#3178c6", logoColor: "#ffffff", icon: "customVector" },
+      { name: "Ollama (local LLMs)", bg: "#000000", logoColor: "#ffffff", icon: "siOllama" },
     ],
   },
   {
@@ -58,7 +65,15 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "PostgreSQL", bg: "#4169e1", logoColor: "#ffffff", icon: "siPostgresql" },
       { name: "MySQL", bg: "#00758f", logoColor: "#ffffff", icon: "siMysql" },
-      { name: "MongoDB", bg: "#47a248", logoColor: "#ffffff", icon: "siMongodb" },
+      { name: "Supabase", bg: "#3ecf8e", logoColor: "#ffffff", icon: "siSupabase" },
+    ],
+  },
+  {
+    category: "Cloud & Deployment",
+    items: [
+      { name: "AWS", bg: "#ff9900", logoColor: "#000000", icon: "customAws" },
+      { name: "Vercel", bg: "#ffffff", logoColor: "#000000", icon: "siVercel" },
+      { name: "Docker", bg: "#2496ed", logoColor: "#ffffff", icon: "siDocker" },
     ],
   },
 ];
